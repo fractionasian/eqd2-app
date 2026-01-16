@@ -1,0 +1,192 @@
+.about-hero {
+    text-align: center;
+    padding: 24px;
+    background: var(--card-bg);
+    border-radius: 12px;
+}
+
+.about-icon {
+    font-size: 60px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.about-app-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+}
+
+.about-version {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.about-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.about-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-tertiary);
+    margin: 0;
+    padding: 12px 16px 8px;
+}
+
+.about-section-content {
+    padding: 0 16px 16px;
+}
+
+.about-section-content p {
+    font-size: 15px;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin: 0 0 12px 0;
+}
+
+.about-section-content p:last-child {
+    margin-bottom: 0;
+}
+
+.formula-display {
+    display: block;
+    font-family: 'SF Mono', 'Menlo', monospace;
+    font-size: 15px;
+    padding: 12px 16px;
+    background: var(--section-bg);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.formula-legend {
+    font-size: 14px !important;
+    font-weight: 600;
+    margin-bottom: 6px !important;
+}
+
+.formula-vars {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.formula-vars li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding: 4px 0;
+}
+
+.limitations {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.limitation-row {
+    display: flex;
+    gap: 12px;
+}
+
+.limitation-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.limitation-content strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.limitation-content p {
+    font-size: 13px !important;
+    color: var(--text-secondary) !important;
+    margin: 0 !important;
+}
+
+.alpha-beta-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.alpha-beta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.alpha-beta-row:last-child {
+    border-bottom: none;
+}
+
+.tissue-name {
+    font-size: 14px;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.tissue-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.disclaimer-section .about-section-content {
+    text-align: center;
+}
+
+.disclaimer-icon-large {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 12px;
+    color: #ef4444;
+}
+
+.disclaimer-highlight {
+    font-weight: 600 !important;
+}
+
+.disclaimer-text {
+    font-size: 14px !important;
+    color: var(--text-secondary) !important;
+}
+
+.view-disclaimer-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent-color);
+    background: var(--section-bg);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.view-disclaimer-button:hover {
+    background: var(--input-bg-hover);
+}
+
+.references p {
+    font-size: 12px !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.4 !important;
+}

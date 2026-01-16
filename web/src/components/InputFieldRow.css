@@ -1,0 +1,55 @@
+.input-field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: var(--input-bg);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.input-field-row:hover {
+  background: var(--input-bg-hover);
+}
+
+.input-field-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.input-field-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.input-field-input {
+  width: 100px;
+  padding: 8px 12px;
+  font-size: 16px;
+  text-align: right;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-field-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px var(--accent-color-alpha);
+}
+
+.input-field-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input-field-unit {
+  font-size: 16px;
+  color: var(--text-secondary);
+  min-width: 24px;
+}
