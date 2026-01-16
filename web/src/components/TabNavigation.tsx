@@ -2,10 +2,10 @@ import { NavLink } from 'react-router-dom';
 import './TabNavigation.css';
 
 const tabs = [
-    { path: '/', label: 'EQD2', icon: '→' },
-    { path: '/reverse', label: 'Reverse', icon: '←' },
-    { path: '/history', label: 'History', icon: '⏱' },
-    { path: '/about', label: 'About', icon: 'ℹ' },
+    { path: '/', label: 'EQD2', icon: '➡️' },
+    { path: '/reverse', label: 'Reverse', icon: '⬅️' },
+    { path: '/history', label: 'History', icon: '📜' },
+    { path: '/about', label: 'About', icon: 'ℹ️' },
 ];
 
 export function TabNavigation() {
