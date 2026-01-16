@@ -39,12 +39,21 @@
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 20px;
-  padding-bottom: 40px;
+  padding: 16px;
+  /* Reduced from 20px */
+  padding-bottom: 24px;
   /* Extra padding for bottom of content */
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
+  /* Reduced from 20px */
+}
+
+/* On taller screens, center content vertically if it fits */
+@media (min-height: 700px) {
+  .page-content {
+    justify-content: center;
+  }
 }
 
 @keyframes fadeIn {
