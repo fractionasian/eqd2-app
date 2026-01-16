@@ -154,7 +154,7 @@ export function ReverseEQD2() {
                 )}
 
                 <section className="formula-section">
-                    <MathFormula tex="EQD_2 = D \times \frac{d + \alpha/\beta}{2 + \alpha/\beta}" block />
+                    <MathFormula tex="EQD_2 = D \cdot \frac{d + (\alpha/\beta)}{2\text{Gy} + (\alpha/\beta)}" block />
                     <p className="formula-description">
                         Solves for <MathFormula tex="D" /> (total dose) given target <MathFormula tex="EQD_2" />
                     </p>
