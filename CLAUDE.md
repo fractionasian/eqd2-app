@@ -42,8 +42,19 @@ Run these commands from the `web/` directory:
 - **`src/hooks/`**:
   - `use-calculation-history.ts`: Manages history state and `localStorage` persistence.
 - **`src/components/`**:
-  - `TabNavigation.tsx`: Mobile-bottom navigation.
-  - `ReloadPrompt.tsx`: PWA update notification.
+  - `CalculatorLayout.tsx`: Shared UI shell for calculator pages (promotes consistency).
+  - `TabNavigation.tsx`: Fixed mobile-bottom navigation with backdrop blur.
+  - `MathFormula.tsx`: KaTeX wrapper for rendering LaTeX formulas.
+  - `InputFieldRow.tsx`: Standardized input row with label and unit.
+
+### UI & Styling Patterns
+- **Native-Like Feel**:
+  - **Safe Areas**: Uses `env(safe-area-inset-bottom)` for iOS home bar clearance.
+  - **Scrolling**: Implements a CSS spacer (`::after`) in content containers to robustly clear fixed navigation bars on mobile.
+  - **Glassmorphism**: Backdrop filters used on navigation and overlays.
+- **Typography**:
+  - Medical terms must use proper formatting (e.g., `EQD₂` with subscript, not `EQD2`).
+  - Font scaling respects user system settings but maintains layout integrity.
 
 ## Testing & Verification
 
