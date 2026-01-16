@@ -83,7 +83,7 @@ export function ForwardEQD2() {
             validationMessage={validationMessage}
             result={eqd2Result !== null ? { label: 'EQD2', value: eqd2Result, unit: 'Gy' } : null}
             dosePerFraction={dosePerFraction}
-            formulaTex="EQD_2 = D \cdot \frac{d + (\alpha/\beta)}{2\\ \\text{Gy} + (\alpha/\beta)}"
+            formulaTex="EQD_2 = D \cdot \frac{d + (\alpha/\beta)}{2\ \text{Gy} + (\alpha/\beta)}"
             formulaDescription={
                 <>
                     <MathFormula tex="D" /> = total dose, <MathFormula tex="d" /> = dose per fraction
