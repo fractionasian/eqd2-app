@@ -47,7 +47,7 @@ export function About() {
             <main className="page-content">
                 <section className="about-hero">
                     <span className="about-icon">⚕️</span>
-                    <h2 className="about-app-name">EQD2 Calculator</h2>
+                    <h2 className="about-app-name">EQD<sub>2</sub> Calculator</h2>
                     <p className="about-version">Version 1.0</p>
                 </section>
 
