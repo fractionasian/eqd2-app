@@ -65,6 +65,7 @@ export function InputFieldRow({
                     placeholder={placeholder}
                     value={value}
                     onChange={handleChange}
+                    pattern="[0-9]*"
                 />
                 {unit && <span className="input-field-unit">{unit}</span>}
             </div>
