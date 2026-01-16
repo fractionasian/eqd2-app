@@ -2,11 +2,11 @@ import type { ReactNode } from 'react';
 import { MathFormula } from './MathFormula';
 
 interface CalculatorLayoutProps {
-    title: string;
+    title: ReactNode;
     children: ReactNode;
     validationMessage: string | null;
     result: {
-        label: string;
+        label: ReactNode;
         value: number;
         unit: string;
     } | null;

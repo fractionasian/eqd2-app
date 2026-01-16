@@ -23,7 +23,7 @@ function HistoryEntry({ entry, onDelete }: { entry: CalculationEntry; onDelete: 
         <div className="history-entry">
             <div className="history-entry-header">
                 <span className={`history-entry-type ${entry.type === 'EQD2' ? 'type-forward' : 'type-reverse'}`}>
-                    {entry.type}
+                    {entry.type === 'EQD2' ? <>EQD<sub>2</sub></> : entry.type}
                 </span>
                 <span className="history-entry-time">{formatRelativeTime(entry.timestamp)}</span>
             </div>
