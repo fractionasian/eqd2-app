@@ -1,29 +1,10 @@
-import { useState, useEffect } from 'react';
 import './DisclaimerModal.css';
+import { useDisclaimer } from './DisclaimerContext';
 
-const STORAGE_KEY = 'hasSeenDisclaimer';
+export function DisclaimerModal() {
+    const { isDisclaimerVisible, hideDisclaimer } = useDisclaimer();
 
-interface DisclaimerModalProps {
-    onAccept?: () => void;
-}
-
-export function DisclaimerModal({ onAccept }: DisclaimerModalProps) {
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const hasSeenDisclaimer = localStorage.getItem(STORAGE_KEY);
-        if (!hasSeenDisclaimer) {
-            setIsVisible(true);
-        }
-    }, []);
-
-    const handleAccept = () => {
-        localStorage.setItem(STORAGE_KEY, 'true');
-        setIsVisible(false);
-        onAccept?.();
-    };
-
-    if (!isVisible) return null;
+    if (!isDisclaimerVisible) return null;
 
     return (
         <div className="disclaimer-overlay">
@@ -69,7 +50,7 @@ export function DisclaimerModal({ onAccept }: DisclaimerModalProps) {
                     </ul>
                 </div>
 
-                <button className="disclaimer-button" onClick={handleAccept}>
+                <button className="disclaimer-button" onClick={hideDisclaimer}>
                     I Understand and Agree
                 </button>
             </div>
@@ -77,15 +58,4 @@ export function DisclaimerModal({ onAccept }: DisclaimerModalProps) {
     );
 }
 
-export function useDisclaimerState() {
-    const [hasAccepted, setHasAccepted] = useState(() => {
-        return localStorage.getItem(STORAGE_KEY) === 'true';
-    });
 
-    const showDisclaimer = () => {
-        localStorage.removeItem(STORAGE_KEY);
-        setHasAccepted(false);
-    };
-
-    return { hasAccepted, showDisclaimer };
-}

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { InputFieldRow } from '../components/InputFieldRow';
 import { calculateReverse } from '../lib/eqd2-calculator';
 import { useCalculationHistory } from '../hooks/use-calculation-history';
+import { MathFormula } from '../components/MathFormula';
 import './ForwardEQD2.css'; // Reuse same styles
 
 export function ReverseEQD2() {
@@ -151,11 +152,9 @@ export function ReverseEQD2() {
                 )}
 
                 <section className="formula-section">
-                    <code className="formula">
-                        Solves: EQD2 = D × [(d + α/β) / (2 + α/β)]
-                    </code>
+                    <MathFormula tex="EQD_2 = D \times \frac{d + \alpha/\beta}{2 + \alpha/\beta}" block />
                     <p className="formula-description">
-                        For D (total dose) given target EQD2
+                        Solves for <MathFormula tex="D" /> (total dose) given target <MathFormula tex="EQD_2" />
                     </p>
                 </section>
             </main>
