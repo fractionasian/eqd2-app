@@ -80,7 +80,7 @@ export function ReverseEQD2() {
             validationMessage={validationMessage}
             result={totalDose !== null ? { label: 'Total Dose', value: totalDose, unit: 'Gy' } : null}
             dosePerFraction={dosePerFraction}
-            formulaTex="EQD_2 = D \cdot \frac{d + (\alpha/\beta)}{2\\ \\text{Gy} + (\alpha/\beta)}"
+            formulaTex="EQD_2 = D \cdot \frac{d + (\alpha/\beta)}{2\ \text{Gy} + (\alpha/\beta)}"
             formulaDescription={
                 <>
                     Solves for <MathFormula tex="D" /> (total dose) given target <MathFormula tex="EQD_2" />
