@@ -18,6 +18,9 @@
   font-weight: 500;
   color: var(--text-primary);
   cursor: pointer;
+  flex-shrink: 0;
+  /* Prevent label from squishing */
+  margin-right: 12px;
 }
 
 .input-field-wrapper {
@@ -26,17 +29,25 @@
   gap: 4px;
   color: var(--text-primary);
   text-align: right;
-  width: 100%;
+  flex: 1;
+  /* Allow wrapper to take remaining space */
+  justify-content: flex-end;
+  /* Align content to the right */
+  min-width: 0;
+  /* Allow shrinking if absolutely necessary */
   padding: 0;
   margin: 0;
   font-size: 14px;
-  /* Reduced from 16px */
   -webkit-appearance: none;
   -moz-appearance: textfield;
 }
 
 .input-field-input {
-  width: 100px;
+  width: 100%;
+  max-width: 100px;
+  /* Don't force 100px, allow shrinking if needed, but cap max */
+  min-width: 60px;
+  /* Prevent becoming unreadably small */
   padding: 8px 12px;
   font-size: 14px;
   /* Reduced from 16px */
