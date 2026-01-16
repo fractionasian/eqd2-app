@@ -69,7 +69,7 @@ export function About() {
                 <section className="about-section">
                     <h3 className="about-section-title">Formula</h3>
                     <div className="about-section-content">
-                        <MathFormula tex="EQD_2 = D \times \frac{d + \alpha/\beta}{2 + \alpha/\beta}" block />
+                        <MathFormula tex="EQD_2 = D \cdot \frac{d + (\alpha/\beta)}{2\text{Gy} + (\alpha/\beta)}" block />
                         <p className="formula-legend"><strong>Where:</strong></p>
                         <ul className="formula-vars">
                             <li><MathFormula tex="D" /> = total dose (Gy)</li>
