@@ -1,0 +1,27 @@
+.math-formula.block {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+    font-size: 1.1em;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.math-formula.inline {
+    display: inline-block;
+}
+
+.formula-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.formula-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    margin-bottom: 0;
+}

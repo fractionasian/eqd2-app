@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { InputFieldRow } from '../components/InputFieldRow';
 import { calculateForward } from '../lib/eqd2-calculator';
 import { useCalculationHistory } from '../hooks/use-calculation-history';
+import { MathFormula } from '../components/MathFormula';
 import './ForwardEQD2.css';
 
 export function ForwardEQD2() {
@@ -151,9 +152,9 @@ export function ForwardEQD2() {
                 )}
 
                 <section className="formula-section">
-                    <code className="formula">EQD2 = D × [(d + α/β) / (2 + α/β)]</code>
+                    <MathFormula tex="EQD_2 = D \times \frac{d + \alpha/\beta}{2 + \alpha/\beta}" block />
                     <p className="formula-description">
-                        D = total dose, d = dose per fraction
+                        <MathFormula tex="D" /> = total dose, <MathFormula tex="d" /> = dose per fraction
                     </p>
                 </section>
             </main>

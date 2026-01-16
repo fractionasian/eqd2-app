@@ -1,4 +1,5 @@
-import { useDisclaimerState } from '../components/DisclaimerModal';
+import { useDisclaimer } from '../components/DisclaimerContext';
+import { MathFormula } from '../components/MathFormula';
 import './About.css';
 
 interface LimitationRowProps {
@@ -35,7 +36,7 @@ function AlphaBetaRow({ tissue, value }: AlphaBetaRowProps) {
 }
 
 export function About() {
-    const { showDisclaimer } = useDisclaimerState();
+    const { showDisclaimer } = useDisclaimer();
 
     return (
         <div className="page">
@@ -68,14 +69,12 @@ export function About() {
                 <section className="about-section">
                     <h3 className="about-section-title">Formula</h3>
                     <div className="about-section-content">
-                        <code className="formula-display">
-                            EQD2 = D × [(d + α/β) / (2 + α/β)]
-                        </code>
+                        <MathFormula tex="EQD_2 = D \times \frac{d + \alpha/\beta}{2 + \alpha/\beta}" block />
                         <p className="formula-legend"><strong>Where:</strong></p>
                         <ul className="formula-vars">
-                            <li>D = total dose (Gy)</li>
-                            <li>d = dose per fraction (Gy)</li>
-                            <li>α/β = tissue-specific ratio</li>
+                            <li><MathFormula tex="D" /> = total dose (Gy)</li>
+                            <li><MathFormula tex="d" /> = dose per fraction (Gy)</li>
+                            <li><MathFormula tex="\alpha/\beta" /> = tissue-specific ratio</li>
                         </ul>
                     </div>
                 </section>
