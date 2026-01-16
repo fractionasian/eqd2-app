@@ -1,15 +1,50 @@
 .app {
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
 
-.main-content {
+/* Shared Page Layout */
+.page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--page-bg);
+  overflow: hidden;
+}
+
+.page-header {
+  flex-shrink: 0;
+  padding: 16px 20px;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 50;
+  /* Ensure header stays on top */
+  position: relative;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.page-content {
   flex: 1;
-  padding-bottom: calc(80px + env(safe-area-inset-bottom, 20px));
-  /* Add entry animation */
-  animation: fadeIn 0.3s ease-out;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px;
+  padding-bottom: 40px;
+  /* Extra padding for bottom of content */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 @keyframes fadeIn {

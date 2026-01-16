@@ -90,6 +90,9 @@ body {
 #root {
   min-height: 100vh;
   min-height: 100dvh;
+  height: 100%;
+  overflow: hidden;
+  /* Prevent global scroll */
 }
 
 /* Remove default button/input styles */
