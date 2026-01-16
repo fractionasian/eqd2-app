@@ -3,6 +3,7 @@ import { InputFieldRow } from '../components/InputFieldRow';
 import { calculateForward } from '../lib/eqd2-calculator';
 import { useCalculationHistory } from '../hooks/use-calculation-history';
 import { MathFormula } from '../components/MathFormula';
+import { CalculatorLayout } from '../components/CalculatorLayout';
 import './ForwardEQD2.css';
 
 export function ForwardEQD2() {
@@ -11,7 +12,6 @@ export function ForwardEQD2() {
     const [alphaBeta, setAlphaBeta] = useState('10');
     const { addEntry } = useCalculationHistory();
     const lastSavedResult = useRef<number | null>(null);
-    const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     // Calculate dose per fraction
     const dosePerFraction =
@@ -55,111 +55,63 @@ export function ForwardEQD2() {
     const validationMessage = getValidationMessage();
 
     // Debounced save to history
-    useEffect(() => {
-        if (eqd2Result !== null && eqd2Result !== lastSavedResult.current) {
-            if (debounceRef.current) {
-                clearTimeout(debounceRef.current);
-            }
+    const isReadyToSave = eqd2Result !== null;
 
-            debounceRef.current = setTimeout(() => {
+    useEffect(() => {
+        if (!isReadyToSave) return;
+
+        const timer = setTimeout(() => {
+            // Only save if result hasn't changed to null/invalid in the meantime
+            // and if it's different (logic handled by history hook or just standard check)
+            // Actually, the simplest check for this specific app is:
+            if (eqd2Result !== lastSavedResult.current) {
                 lastSavedResult.current = eqd2Result;
                 addEntry(
                     'EQD2',
                     `D=${totalDose} Gy, n=${numberOfFractions}, α/β=${alphaBeta}`,
                     `${eqd2Result.toFixed(2)} Gy`
                 );
-            }, 1000);
-        }
-
-        return () => {
-            if (debounceRef.current) {
-                clearTimeout(debounceRef.current);
             }
-        };
-    }, [eqd2Result, totalDose, numberOfFractions, alphaBeta, addEntry]);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [eqd2Result, totalDose, numberOfFractions, alphaBeta, addEntry, isReadyToSave]);
 
     return (
-        <div className="page">
-            <header className="page-header">
-                <h1 className="page-title">EQD2</h1>
-            </header>
-
-            <main className="page-content">
-                <section className="input-section">
-                    <InputFieldRow
-                        label="Total Dose"
-                        placeholder="50"
-                        unit="Gy"
-                        value={totalDose}
-                        onChange={setTotalDose}
-                    />
-                    <InputFieldRow
-                        label="Fractions"
-                        placeholder="25"
-                        value={numberOfFractions}
-                        onChange={setNumberOfFractions}
-                        type="integer"
-                        unit="#"
-                    />
-                    <InputFieldRow
-                        label="α/β Ratio"
-                        placeholder="10"
-                        value={alphaBeta}
-                        onChange={setAlphaBeta}
-                        unit="Gy"
-                    />
-                </section>
-
-                {validationMessage && (
-                    <section className="validation-section">
-                        <div className="validation-message">
-                            <span className="validation-icon">⚠️</span>
-                            <span>{validationMessage}</span>
-                        </div>
-                    </section>
-                )}
-
-                {eqd2Result !== null && (
-                    <section className="result-section">
-                        <div className="result-row primary">
-                            <span className="result-label">EQD2</span>
-                            <span className="result-value">{eqd2Result.toFixed(2)} Gy</span>
-                        </div>
-
-                        {dosePerFraction !== null && (
-                            <>
-                                <div className="result-row secondary">
-                                    <span className="result-label">Dose/fraction</span>
-                                    <span className="result-value">
-                                        {dosePerFraction.toFixed(2)} Gy
-                                    </span>
-                                </div>
-
-                                {(dosePerFraction < 1 || dosePerFraction > 6) && (
-                                    <div className="warning-box">
-                                        <span className="warning-icon">⚠️</span>
-                                        <div className="warning-content">
-                                            <strong>Outside Typical Range</strong>
-                                            <p>
-                                                The linear-quadratic model is most accurate for doses of
-                                                1-6 Gy per fraction. Use with caution outside this
-                                                range.
-                                            </p>
-                                        </div>
-                                    </div>
-                                )}
-                            </>
-                        )}
-                    </section>
-                )}
-
-                <section className="formula-section">
-                    <MathFormula tex="EQD_2 = D \cdot \frac{d + (\alpha/\beta)}{2\text{Gy} + (\alpha/\beta)}" block />
-                    <p className="formula-description">
-                        <MathFormula tex="D" /> = total dose, <MathFormula tex="d" /> = dose per fraction
-                    </p>
-                </section>
-            </main>
-        </div>
+        <CalculatorLayout
+            title="EQD2"
+            validationMessage={validationMessage}
+            result={eqd2Result !== null ? { label: 'EQD2', value: eqd2Result, unit: 'Gy' } : null}
+            dosePerFraction={dosePerFraction}
+            formulaTex="EQD_2 = D \cdot \frac{d + (\alpha/\beta)}{2\text{Gy} + (\alpha/\beta)}"
+            formulaDescription={
+                <>
+                    <MathFormula tex="D" /> = total dose, <MathFormula tex="d" /> = dose per fraction
+                </>
+            }
+        >
+            <InputFieldRow
+                label="Total Dose"
+                placeholder="50"
+                unit="Gy"
+                value={totalDose}
+                onChange={setTotalDose}
+            />
+            <InputFieldRow
+                label="Fractions"
+                placeholder="25"
+                value={numberOfFractions}
+                onChange={setNumberOfFractions}
+                type="integer"
+                unit="#"
+            />
+            <InputFieldRow
+                label="α/β Ratio"
+                placeholder="10"
+                value={alphaBeta}
+                onChange={setAlphaBeta}
+                unit="Gy"
+            />
+        </CalculatorLayout>
     );
 }
