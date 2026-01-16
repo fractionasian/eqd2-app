@@ -1,8 +1,8 @@
-import { useRef, useId } from 'react';
+import { useRef, useId, ReactNode } from 'react';
 import './InputFieldRow.css';
 
 interface InputFieldRowProps {
-    label: string;
+    label: ReactNode;
     placeholder: string;
     unit?: string;
     value: string;

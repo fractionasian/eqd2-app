@@ -76,7 +76,7 @@ export function ReverseEQD2() {
 
     return (
         <CalculatorLayout
-            title="Reverse EQD2"
+            title={<>Reverse EQD<sub>2</sub></>}
             validationMessage={validationMessage}
             result={totalDose !== null ? { label: 'Total Dose', value: totalDose, unit: 'Gy' } : null}
             dosePerFraction={dosePerFraction}
@@ -88,7 +88,7 @@ export function ReverseEQD2() {
             }
         >
             <InputFieldRow
-                label="Target EQD2"
+                label={<>Target EQD<sub>2</sub></>}
                 placeholder="60"
                 unit="Gy"
                 value={targetEQD2}
