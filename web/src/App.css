@@ -41,7 +41,7 @@
   -webkit-overflow-scrolling: touch;
   padding: 16px;
   /* Reduced from 20px */
-  padding-bottom: 24px;
+  padding-bottom: calc(85px + env(safe-area-inset-bottom));
   /* Extra padding for bottom of content */
   display: flex;
   flex-direction: column;
