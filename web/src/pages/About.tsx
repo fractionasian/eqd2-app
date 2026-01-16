@@ -56,7 +56,10 @@ export function About() {
                     <div className="about-section-content">
                         <p>
                             This calculator computes the Equivalent Dose in 2 Gy fractions
-                            (EQD2) using the linear-quadratic (LQ) model.
+                            (EQD<sub>2</sub>) using the linear-quadratic (LQ) model.
+                        </p>
+                        <p>
+                            It also includes a <strong>Reverse EQD<sub>2</sub></strong> calculator: set a target EQD<sub>2</sub> for a given number of fractions to find the required dose. This is useful for calculating a simultaneous integrated boost (SIB).
                         </p>
                         <p>
                             The LQ model describes the biological effect of radiation based on
@@ -69,7 +72,7 @@ export function About() {
                 <section className="about-section">
                     <h3 className="about-section-title">Formula</h3>
                     <div className="about-section-content">
-                        <MathFormula tex="EQD_2 = D \cdot \frac{d + (\alpha/\beta)}{2\text{Gy} + (\alpha/\beta)}" block />
+                        <MathFormula tex="EQD_2 = D \cdot \frac{d + (\alpha/\beta)}{2\ \text{Gy} + (\alpha/\beta)}" block />
                         <p className="formula-legend"><strong>Where:</strong></p>
                         <ul className="formula-vars">
                             <li><MathFormula tex="D" /> = total dose (Gy)</li>
@@ -92,7 +95,7 @@ export function About() {
                             icon="⏱️"
                             color="#3b82f6"
                             title="Time Factor"
-                            description="The basic LQ model does not account for overall treatment time, tumor repopulation, or interfraction repair."
+                            description="The basic LQ model does not account for overall treatment time, tumour repopulation, or interfraction repair."
                         />
                         <LimitationRow
                             icon="📈"
@@ -106,10 +109,8 @@ export function About() {
                 <section className="about-section">
                     <h3 className="about-section-title">Common α/β Values</h3>
                     <div className="about-section-content alpha-beta-table">
-                        <AlphaBetaRow tissue="Early-reacting tissues (acute effects)" value="10 Gy" />
-                        <AlphaBetaRow tissue="Late-reacting tissues (CNS, lung)" value="3 Gy" />
-                        <AlphaBetaRow tissue="Prostate cancer" value="1.5 Gy" />
-                        <AlphaBetaRow tissue="Melanoma" value="0.6 Gy" />
+                        <AlphaBetaRow tissue="Early-reacting tissues" value="10 Gy" />
+                        <AlphaBetaRow tissue="Late-reacting tissues" value="3 Gy" />
                     </div>
                 </section>
 
@@ -137,16 +138,13 @@ export function About() {
                     <h3 className="about-section-title">References</h3>
                     <div className="about-section-content references">
                         <p>
-                            1. Fowler JF. The linear-quadratic formula and progress in
-                            fractionated radiotherapy. Br J Radiol. 1989;62(740):679-694.
+                            1. Fowler JF. The linear-quadratic formula and progress in fractionated radiotherapy. Br J Radiol. 1989;62(740):679-94.
                         </p>
                         <p>
-                            2. Joiner MC, van der Kogel AJ. Basic Clinical Radiobiology. 4th
-                            ed. CRC Press; 2009.
+                            2. Joiner MC, van der Kogel AJ. Basic Clinical Radiobiology. 5th ed. CRC Press; 2018.
                         </p>
                         <p>
-                            3. AAPM TG-101: Stereotactic Body Radiation Therapy. Med Phys.
-                            2010.
+                            3. Benedict SH, Yenice KM, Followill D, et al. Stereotactic body radiation therapy: the report of AAPM Task Group 101. Med Phys. 2010;37(8):4078-101.
                         </p>
                     </div>
                 </section>
