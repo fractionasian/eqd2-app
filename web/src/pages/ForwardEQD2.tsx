@@ -99,12 +99,14 @@ export function ForwardEQD2() {
                         value={numberOfFractions}
                         onChange={setNumberOfFractions}
                         type="integer"
+                        unit="#"
                     />
                     <InputFieldRow
                         label="α/β Ratio"
                         placeholder="10"
                         value={alphaBeta}
                         onChange={setAlphaBeta}
+                        unit="Gy"
                     />
                 </section>
 
